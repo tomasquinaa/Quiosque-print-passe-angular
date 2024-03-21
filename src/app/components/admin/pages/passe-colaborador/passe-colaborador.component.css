@@ -1,0 +1,114 @@
+.imagem-ajustada {
+  max-width: 100%; /* Define a largura máxima da imagem como 100% do contêiner pai */
+  height: auto; /* Mantém a proporção original da imagem */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza os elementos horizontalmente */
+  text-align: center; /* Centraliza o texto */
+  padding: 20px; /* Adiciona um preenchimento de 20 pixels em todos os lados do card */
+  border: 2px solid #4086f4; /* Define uma borda vermelha com 2 pixels de largura */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Adicione outras animações visuais se desejado */
+}
+
+.card:active {
+  transform: translateY(2px);
+  /* Adapte a animação de acordo com o estilo do seu aplicativo */
+}
+
+.card-title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/** CSS Cartao */
+@page {
+  size: 500px 416px;
+  padding: 0;
+  margin: 0;
+}
+
+.page {
+  padding: 5px;
+  border: 2px solid #000; /* Adiciona uma borda preta de 2 pixels */
+  margin-bottom: 40px;
+  font-family: sans-serif;
+  font-size: 22px;
+  background-color: #fff; /* Define o fundo como branco */
+}
+
+.body {
+  margin-bottom: 15px;
+}
+
+.body .body-item {
+  margin-top: 6px;
+}
+
+.footer {
+  margin-top: 8px;
+  color: rgb(52, 115, 173);
+  font-size: 12px;
+  text-align: center;
+}
+
+@media print {
+  /* Estilos para a impressão */
+  body * {
+    visibility: hidden;
+  }
+  .page {
+    visibility: visible;
+  }
+  .page {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+.page {
+  width: 80%; /* Definir a largura como 80% da tela */
+  max-width: 700px; /* Definir a largura máxima para garantir que não fique muito largo */
+  margin: 0 auto; /* Auto centraliza na tela horizontalmente */
+  padding: 20px; /* Adicionar espaço interno ao cartão */
+  box-sizing: border-box; /* Incluir padding na largura */
+  /* Outros estilos do seu cartão... */
+}
+
+/* Novos estilos para centralizar o conteúdo */
+.center-content {
+  text-align: center;
+  margin-top: 20px; /* Ajuste o espaçamento superior conforme necessário */
+}
+
+/* Novos estilos para o botão */
+.custom-button {
+  font-size: 18px; /* Ajusta o tamanho da fonte */
+  padding: 15px 95px; /* Ajusta o padding do botão */
+  border-radius: 8px; /* Adiciona bordas arredondadas */
+  background-color: #4086f4; /* Cor de fundo do botão */
+  color: white; /* Cor do texto do botão */
+  border: none; /* Remove a borda do botão */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #3060b5; /* Altera a cor de fundo ao passar o mouse */
+}
+
+/* Novos estilos para o parágrafo */
+.custom-paragraph {
+  font-size: 24px; /* Ajusta o tamanho da fonte */
+  color: blue; /* Muda a cor do texto para azul */
+}

@@ -1,0 +1,74 @@
+1. ng g c components/admin/pages/home
+2. ng g c core/components/pages/auth
+3. para criar o nosso modulo junto com com a rota: ng g m components/admin
+--routing
+4. ng g m core/components/auth --routing
+5. ng g c core/components/auth/pages/sign
+6. ng g s core/services/Auth
+7. ng g guard core/guard/Auth
+8. Depois de criar o guard, instalamos uma biblioteca do auth0
+LINK: https://www.npmjs.com/package/@auth0/angular-jwt
+Instalamos o auth0: npm i @auth0/angular-jwt
+Depois de instalar criamos uma funcao no service de isAuthenticated()
+
+// ========================================================== Service do Login
+da Api Docuware Desenvolvido pelo Samuel ================================ //
+
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable, catchError, map, throwError } from 'rxjs';
+
+// Services
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+@Injectable({
+providedIn: 'root',
+})
+export class AuthService {
+private url: string = 'http://kiosk.rcsangola.co.ao/api';
+
+constructor(private http: HttpClient, private router: Router) {}
+
+public sign(payload: { email: string; password: string }): Observable<any> {
+    return this.http
+    .post<{ access_token: string }>(`${this.url}/login/docuware`, payload)
+    .pipe(
+    map((res) => {
+    // Este localStorage vai remover os dados
+    localStorage.removeItem('access_token');
+    // localStorage.setItem(
+    // 'access_token',
+    // JSON.stringify(res.access_token)
+    // );
+
+    // Vai salvar os dados
+    localStorage.setItem('access_token', res.access_token);
+    return this.router.navigate(['admin']);
+    }),
+    catchError((e) => {
+    if (e.error.message) return throwError(() => e.error.message);
+
+    return throwError(
+    () =>
+    'No momento não estamos conseguido validar este dados, tente novamente mais tarde!'
+    );
+    })
+    );
+    }
+
+    public logout() {
+    localStorage.removeItem('access_token');
+    return this.router.navigate(['']);
+    }
+
+    public isAuthenticated(): boolean {
+    const token = localStorage.getItem('access_token');
+
+    if (!token) return false;
+
+    // Importa
+    const jwtHelper = new JwtHelperService();
+    return !jwtHelper.isTokenExpired(token);
+    }
+    }

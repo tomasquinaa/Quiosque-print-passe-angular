@@ -1,0 +1,41 @@
+.navbar {
+    position: relative;
+    height: 10vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbar ul {
+    position: absolute;
+    display: flex;
+    gap: 10px;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    left: 70%;
+    list-style: none;
+    padding: 0; /* Para remover o espaçamento padrão entre itens da lista */
+    margin: 0; /* Para remover margens padrão */
+  }
+  
+  .logout {
+    padding: 5px 10px; /* Adiciona um espaço interno ao redor do texto */
+    border: 1px solid #6291bd; /* Adiciona uma borda ao redor do texto */
+    border-radius: 5px; /* Deixa as bordas arredondadas */
+    cursor: pointer; /* Altera o cursor ao passar sobre o texto */
+    background-color: #c5d7e7; /* Define a cor de fundo da borda */
+    background-image: linear-gradient(
+      to right bottom,
+      #2d90e7,
+      #5398db,
+      #70a0cf,
+      #8aa7c3,
+      #a2adb7
+    );
+  }
+  
+  .logout:hover {
+    background-color: #c5d7e7; /* Muda a cor de fundo ao passar o mouse */
+    color: white; /* Muda a cor do texto ao passar o mouse */
+  }

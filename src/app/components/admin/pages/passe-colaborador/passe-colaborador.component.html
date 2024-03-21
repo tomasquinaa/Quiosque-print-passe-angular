@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<section class="pt-md-5">
+    <div class="container">
+        <div class="page" style="width: 700px; height: 350px">
+            <div class="header">
+                <table style="width: 100%">
+                    <tr>
+                        <td>
+                            <div><img src="../../../../../assets/img/logo.png"
+                                    alt width="120" /></div>
+                        </td>
+                        <td style="text-align: center">
+                            <div style="font-weight: bold">Exija serviços</div>
+                        </td>
+                        <td style="text-align: right">
+                            <div><img [src]="photo" alt width="130" /></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="body">
+                <div class="body-item">
+                    Nome: <b>{{ username }}</b>
+                </div>
+                <div class="body-item">
+                    Função: <b>{{ occupation }}</b>
+                </div>
+                <div class="body-item">
+                    Matrícula: <b>{{ matricula }}</b>
+                </div>
+                <div class="body-item">
+                    Início: <b>{{ hire_date | date:'dd-MM-yyyy' }}</b>
+                </div>
+            </div>
+            <div class="footer">Qualquer emergência contactar : 932 896 190</div>
+        </div>
+
+        <br />
+        <div class="center-content">
+            <p class="custom-paragraph">
+                A emissão da 2ª Via do Passe tem um custo de 7.500 Kz
+            </p>
+            <button class="custom-button" (click)="fazerPagamentoViaWiza()">
+                Fazer Pagamento via WIZA
+            </button>
+        </div>
+    </div>
+</section>
